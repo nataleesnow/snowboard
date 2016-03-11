@@ -1,0 +1,32 @@
+== README
+
+Snowboarding is a simple app to show off some gear and ride data
+and demonstrate my portfolio.
+
+## Dependencies
+
+* Ruby version 2.2.1
+
+* RVM
+
+## Configuration
+
+```bundle```
+
+## Configuration
+
+* Test DB
+
+```bundle exec rake db:migrate db:seed```
+
+* Dev DB
+
+```RAILS_ENV="test" bundle exec rake db:drop db:create db:migrate db:seed```
+
+## Run the test suite
+
+```bundle exec rspec```
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions

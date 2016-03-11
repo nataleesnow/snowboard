@@ -1,0 +1,53 @@
+<div class="row small-4 columns">
+  <div class="callout notice text-center" style="display: none;">
+  </div>
+</div>
+
+<div class="row small-11 columns">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="row small-up-2 medium-up-3 large-up-4">
+
+  <%- @owners.each do |owner| %>
+    <%- owner.lift_passes.each do |lp| %>
+      <div class="column">
+        <%= render 'wtp_modal', lp: lp %>
+        <%= link_to_lift_pass(lp) %>
+        <h6><%= owner.name %> Ride Data <%= lp.season.begin_year %> - <%= lp.season.end_year %></h6>
+      </div>
+    <%- end %>
+  <%- end %>
+
+</div>
+
+<div id="ride_partial">
+</div>
+
+<%- if false %>
+  <div class="column">
+    <table id="calendar" style="transparency: 12">
+      <caption>November</caption>
+      <th>M</th>
+      <th>T</th>
+      <th>W</th>
+      <th>T</th>
+      <th>F</th>
+      <th>S</th>
+      <th>S</th>
+      <tr> <td><%= link_to 'lnk', '' %></td> </tr>
+      <tr> <td>heyu </td> <td>heyu </td> </tr>
+      <tr> <td>heyu </td> </tr>
+    </table>
+  </div>
+
+  <div class="column">
+    <%= image_tag "IMG_0527.JPG", class: "thumbnail" %>
+    <h5>Gear</h5>
+    <p class="text-center subheader">center text</p>
+  </div>
+<%- end %>

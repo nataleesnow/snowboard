@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snowboard</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+        <div class="row column">
+          <%= image_tag "IMG_0846.JPG", class: "thumbnail" %>
+          <h5>Natalee Thomason</h5>
+          <p>
+            Software Developer <br>(mid-level) specializing in Ruby on Rails.
+          </p>
+          <p>
+            This site built with
+          </p>
+          <p>
+            <span class="info label"><i class="fi-check"></i> Rails 4</span>
+            <span class="info label"><i class="fi-check"></i> Foundation 6</span>
+            <span class="info label"><i class="fi-check"></i> SQLite 3</span>
+            <span class="info label"><i class="fi-check"></i> Coffeescript</span>
+            <span class="info label"><i class="fi-check"></i> Rspec</span>
+          </p>
+        </div>
+      </div>
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="title-bar hide-for-large">
+          <div class="title-bar-left">
+            <button class="menu-icon" type="button" data-open="my-info"></button>
+            <span class="title-bar-title">Natalee Thomason</span>
+          </div>
+        </div>
+        <div class="callout primary">
+          <div class="row column">
+            <h1>Snowboarding 2015-16</h1>
+            <p class="lead">
+              Gaze with envy upon the ride data taken at glorious Solitude. Or salivate over my delicious gear setup.
+            </p>
+          </div>
+        </div>
+
+        <%= yield %>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
