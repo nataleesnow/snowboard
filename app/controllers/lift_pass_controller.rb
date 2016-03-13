@@ -1,5 +1,5 @@
 class LiftPassController < ApplicationController
-  before_filter :find_lift_pass, except: :save_wtp
+  before_filter :find_lift_pass, only: :index
 
   def index
   end
@@ -23,6 +23,10 @@ class LiftPassController < ApplicationController
     ensure
       render text: {success: err.empty?, err: err.join(" ")}.to_json
     end
+  end
+
+  def get_day_ride
+    render :get_day_ride, layout: false
   end
 
   private

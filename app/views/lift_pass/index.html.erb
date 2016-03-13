@@ -15,8 +15,22 @@
 </div>
 <div class="row">
   <div class="small-11 small-centered columns">
-    <h5 class="text-center"><%= debug @lift_pass.rides %> </h5>
+    <h5 class="text-center">here are your rides </h5>
   </div>
+</div>
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <table>
+    <tr> <td colspan=4><%= @lift_pass.rides.count %> Runs!</td> </tr>
+    <tr> <td colspan=4><%= number_to_currency(@lift_pass.total).gsub!('$', '').gsub!('.','').sub(/00$/, '') %> Total!</td> </tr>
+  <%- @lift_pass.rides.each do |ride| %>
+    <tr>
+      <td><%= ride.vert %></td>
+      <td><%= ride.begin_time %></td>
+      <td><%= link_to ride.day, get_day_ride_path(ride.day), class: 'day' %></td>
+      <td><%= ride.lift %></td>
+    </tr>
+  <%- end %>
+  </table>
 </div>
 <div class="row small-up-2 medium-up-3 large-up-4">
   <div class="column">
@@ -36,6 +50,11 @@
     <h5>My Site</h5>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $('.day').magnificPopup({type:'ajax'});
+  });
+</script>
 <%- if false %>
   <div class="column">
     <table id="calendar" style="transparency: 12">
