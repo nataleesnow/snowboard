@@ -1,0 +1,61 @@
+<div class="row small-11 columns">
+  <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+       <li id="rider_data_breadcrumb">
+        <span class="show-for-sr">Current: </span> Rider Data
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="row">
+  <div class="small-11 small-centered columns">
+    <h5 class="text-center"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </h5>
+  </div>
+</div>
+<div class="row">
+  <div class="small-11 small-centered columns">
+    <h5 class="text-center"><%= debug @lift_pass.rides %> </h5>
+  </div>
+</div>
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <div class="column">
+    <img class="thumbnail" src="http://placehold.it/550x550">
+    <h5>My Site</h5>
+  </div>
+  <div class="column">
+    <img class="thumbnail" src="http://placehold.it/550x550">
+    <h5>My Site</h5>
+  </div>
+  <div class="column">
+    <img class="thumbnail" src="http://placehold.it/550x550">
+    <h5>My Site</h5>
+  </div>
+  <div class="column">
+    <img class="thumbnail" src="http://placehold.it/550x550">
+    <h5>My Site</h5>
+  </div>
+</div>
+<%- if false %>
+  <div class="column">
+    <table id="calendar" style="transparency: 12">
+      <caption>November</caption>
+      <th>M</th>
+      <th>T</th>
+      <th>W</th>
+      <th>T</th>
+      <th>F</th>
+      <th>S</th>
+      <th>S</th>
+      <tr> <td><%= link_to 'lnk', '' %></td> </tr>
+      <tr> <td>heyu </td> <td>heyu </td> </tr>
+      <tr> <td>heyu </td> </tr>
+    </table>
+  </div>
+
+  <div class="column">
+    <%= image_tag "IMG_0527.JPG", class: "thumbnail" %>
+    <h5>Gear</h5>
+    <p class="text-center subheader">center text</p>
+  </div>
+<%- end %>

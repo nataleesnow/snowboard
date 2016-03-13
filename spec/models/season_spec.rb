@@ -4,7 +4,7 @@ RSpec.describe Season, type: :model do
   let (:season) {build(:season)}
 
   it "should have valid factory" do
-    season.should be_valid
+    expect(season).to be_valid
   end
 
 end

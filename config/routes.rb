@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
   root 'welcome#index'
 
-  get 'ride/:id' => 'ride#index', as: :rider_data
+  get 'lift_pass/:id' => 'lift_pass#index', as: 'lift_pass'
 
-  get 'save_wtp' => 'welcome#save_wtp'
+  get 'save_wtp' => 'lift_pass#save_wtp'
 
 end

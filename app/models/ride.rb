@@ -3,4 +3,5 @@ class Ride < ActiveRecord::Base
   has_one :owner, through: :lift_pass
   validates :vert, :lift_pass_id, :day, :begin_time, presence: true
   validates :vert, numericality: true
+
 end

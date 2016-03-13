@@ -6,8 +6,8 @@ RSpec.describe WelcomeHelper do
 
   describe "#link_to_lift_pass" do
     context "wtp number exists" do
-      it "includes the path to the rider data" do
-        expect(helper.link_to_lift_pass(lift_pass)).to include(rider_data_path(lift_pass.owner.id))
+      it "includes the path to the lift pass" do
+        expect(helper.link_to_lift_pass(lift_pass)).to include(lift_pass_path(lift_pass.id))
       end
     end
     context "wtp number does not exist" do

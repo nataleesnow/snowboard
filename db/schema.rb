@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311014628) do
+ActiveRecord::Schema.define(version: 20160312234421) do
 
   create_table "lift_passes", force: :cascade do |t|
     t.integer "owner_id"
     t.integer "season_id"
     t.string  "service_url"
     t.string  "wtp_number"
+    t.integer "total"
   end
 
   add_index "lift_passes", ["owner_id"], name: "index_lift_passes_on_owner_id"
@@ -31,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160311014628) do
     t.integer "lift_pass_id"
     t.integer "vert"
     t.date    "day"
-    t.time    "begin_time"
+    t.string  "begin_time"
     t.string  "lift"
   end
 
