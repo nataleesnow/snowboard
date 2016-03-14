@@ -11,5 +11,3 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( welcome_index.js.coffee )
 Rails.application.config.assets.precompile += %w( jquery.magnific-popup.js )
 Rails.application.config.assets.precompile += %w( magnific-popup.css )
-Rails.application.config.assets.precompile += %w( motion-ui.min.css )
-Rails.application.config.assets.precompile += %w( motion-ui.min.js )
