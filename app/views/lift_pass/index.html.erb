@@ -85,8 +85,8 @@
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
 }
-
 </style>
+
 <div class="row small-11 columns">
   <nav aria-label="You are here:" role="navigation">
     <ul class="breadcrumbs">
@@ -97,6 +97,14 @@
     </ul>
   </nav>
 </div>
+<%- if @lift_pass.rides.empty? %>
+<div class="row">
+  <div class="small-11 small-centered columns">
+    <h5 class="text-center"> No rides found for <%= @lift_pass.owner.name %>. Data imported nightly at 4pm.</h5>
+  </div>
+</div>
+<%- end %>
+<%- unless @lift_pass.rides.empty? %>
 <div class="row">
   <div class="small-11 small-centered columns">
     <h5 class="text-center"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </h5>
@@ -120,6 +128,7 @@
   <%- end %>
   </table>
 </div>
+<%- end %>
 <script>
   $(document).ready(function() {
     $('.day').magnificPopup({
@@ -135,26 +144,3 @@
     });
   });
 </script>
-<%- if false %>
-  <div class="column">
-    <table id="calendar" style="transparency: 12">
-      <caption>November</caption>
-      <th>M</th>
-      <th>T</th>
-      <th>W</th>
-      <th>T</th>
-      <th>F</th>
-      <th>S</th>
-      <th>S</th>
-      <tr> <td><%= link_to 'lnk', '' %></td> </tr>
-      <tr> <td>heyu </td> <td>heyu </td> </tr>
-      <tr> <td>heyu </td> </tr>
-    </table>
-  </div>
-
-  <div class="column">
-    <%= image_tag "IMG_0527.JPG", class: "thumbnail" %>
-    <h5>Gear</h5>
-    <p class="text-center subheader">center text</p>
-  </div>
-<%- end %>
