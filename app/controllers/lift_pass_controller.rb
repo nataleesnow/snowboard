@@ -25,8 +25,9 @@ class LiftPassController < ApplicationController
     end
   end
 
-  def get_day_ride
-    render :get_day_ride, layout: false
+  def day_ride
+    @rides = Ride.by_day(params[:id])
+    render :day_ride, layout: false
   end
 
   private

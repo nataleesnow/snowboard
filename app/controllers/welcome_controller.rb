@@ -18,4 +18,7 @@ class WelcomeController < ApplicationController
       render text: {success: err.empty?, err: err.join(" ")}.to_json
     end
   end
+
+  def my_hats
+  end
 end

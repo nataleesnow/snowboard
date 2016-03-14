@@ -1,0 +1,42 @@
+<style>
+.style3 {
+  color: #228b22;
+  font-size: 40px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228b22, 0 0 30px #228b22, 0 0 40px #228b22, 0 0 50px #228b22, 0 0 75px #228b22;
+}
+.style2 {
+  color: #2daebf;
+  font-size: 40px;
+  text-shadow: 0 1px 0 #0092b3, 0 2px 0 #0087a6, 0 3px 0 #008099, 0 4px 0 #00758c, 0 5px 0 #555, 0 6px 0 #006a80, 0 0 0 #006073, 0 8px 7px #005566;
+}
+</style>
+<div class="callout">
+  <div>
+    <span class="fi-trees style3">
+      <%= Date.parse(params[:id]).strftime("%A, %b %d") %>
+    </span>
+  </div>
+  <table>
+    <tr>
+      <td class="fi-mountains style2">
+        <%= @rides.count %> runs
+        <span style="float:right;"><%= @rides.map(&:vert).sum %> vert ft</span>
+      </td>
+      <td class=""> </td>
+    </tr>
+  </table>
+  <table>
+    <%- if @rides.all?{|r| r.lift=="Moonbeam"} %>
+    <tr>
+      <td class="text-center"> uhhhh, first day ??</td>
+    </tr>
+    <%- end %>
+    <%- @rides.each do |ride| %>
+    <tr>
+      <td class="text-center"> <%= Time.parse(ride.begin_time).strftime("%l:%M %p") %></td>
+      <td class="text-center"> <%= ride.vert %></td>
+      <td class="text-center"> <%= ride.lift %></td>
+    </tr>
+    <%- end %>
+  </table>
+</div>

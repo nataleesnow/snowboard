@@ -4,4 +4,6 @@ class Ride < ActiveRecord::Base
   validates :vert, :lift_pass_id, :day, :begin_time, presence: true
   validates :vert, numericality: true
 
+  scope :by_day, ->(day) { where(day: day) }
+
 end
