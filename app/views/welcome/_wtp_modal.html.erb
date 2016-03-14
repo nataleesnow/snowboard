@@ -10,13 +10,9 @@
   <div class="reveal" id="lp_<%= lp.id %>" data-reveal data-close-on-click="true">
     <div class="input-group">
       <span class="input-group-label"><%= lp.season.begin_year %> - <%= lp.season.end_year %> season pass WTP:</span>
-      <%- if lp.season.begin_year == "2014" %>
-        <input class="input-group-field wtp_<%= lp.id %>">
-      <%- else %>
-        <input class="small-input input-group-field wtp_<%= lp.id %>">-
-        <input class="small-input input-group-field wtp_<%= lp.id %>">-
-        <input class="small-input input-group-field wtp_<%= lp.id %>">
-      <%- end %>
+      <input class="small-input input-group-field wtp_<%= lp.id %>">-
+      <input class="small-input input-group-field wtp_<%= lp.id %>">-
+      <input class="small-input input-group-field wtp_<%= lp.id %>">
       <div class="input-group-button">
         <input type="submit" class="button save_wtp" value="Submit" data-lift-pass-id="<%= lp.id %>" href="<%= save_wtp_path %>">
       </div>

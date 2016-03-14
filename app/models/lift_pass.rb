@@ -3,7 +3,7 @@ class LiftPass < ActiveRecord::Base
   has_many :rides
   belongs_to :season
   validates :season_id, :owner_id, :service_url, presence: true
-  validate :wtp_number_format, if: "wtp_number.present?"
+  #validate :wtp_number_format, if: "wtp_number.present?"
 
   scope :for_owner, ->(owner_id) { where(owner_id: owner_id) }
   scope :for_season, ->(season_id) { where(season_id: season_id) }
