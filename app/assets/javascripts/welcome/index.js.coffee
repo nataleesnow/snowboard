@@ -7,7 +7,8 @@ class Index
 
   saveWtp: (event) =>
     event.preventDefault()
-    lift_pass_id = $(event.target).data("liftPassId")
+    target = $(event.target)
+    lift_pass_id = target.data("liftPassId")
     wtp_number = []
     $.each $(".wtp_"+lift_pass_id), (i, e) ->
       wtp_number.push(e.value) if e.value.match /\w+/
@@ -34,14 +35,13 @@ class Index
         modal.foundation('close')
         res = $.parseJSON(data)
         if res.success
-          console.log $('.supply_wtp').data('lift-pass-id'+lift_pass_id).attr('href')
-          #console.log "<%= lift_pass_path(+"lift_pass_id+") %>"
           res_txt = "Card was saved!"
           aclass = "success"
         else
           res_txt = res.err
           aclass = "alert"
-        $(".callout.notice").addClass(aclass).html(res_txt).show()
+        $(".callout.notice").addClass(aclass).html(res_txt).fadeIn(400)
+        setTimeout (-> location.reload()), 3000
 
   validWTP = (lift_pass_id,wtp) ->
     modal = getModal(lift_pass_id)

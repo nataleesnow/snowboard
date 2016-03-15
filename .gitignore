@@ -20,5 +20,6 @@
 
 # Ignore local env.
 /config/local_env.rb
+/.env
 
 /.byebug_history
