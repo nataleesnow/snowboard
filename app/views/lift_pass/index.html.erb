@@ -15,43 +15,7 @@
   </div>
 </div>
 <%- end %>
+
 <%- unless @lift_pass.rides.empty? %>
-<div class="row">
-  <div class="small-11 small-centered columns">
-  </div>
-</div>
-<div class="row small-up-2 medium-up-3 large-up-4">
-  <h5 class="text-center"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </h5>
-  <h6 class="fi-mountains text-center">  <%= @lift_pass.rides.count %> Runs!</h6>
-  <h6 class="fi-mountains text-center">  <%= @lift_pass.rides.map(&:day).uniq.count %> Days!</h6>
-  <h4 class="callout success text-center"><%= number_to_currency(@lift_pass.total).gsub!('$', '').gsub!('.','').sub(/00$/, '') %> vert feet!</h4>
-  <table>
-  <%- seen_day = {} %>
-  <%- @lift_pass.rides.each do |ride| %>
-    <%- next if seen_day[ride.day] %>
-    <tr>
-      <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).count %> rides</td>
-      <td><%= human_number(Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).map(&:vert).sum) %> vert</td>
-      <td><%= link_to ride.day, day_ride_path(ride), class: 'day' %></td>
-      <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).collect(&:lift).uniq.join(", ") %></td>
-    </tr>
-    <%- seen_day[ride.day] = ride.day %>
-  <%- end %>
-  </table>
-</div>
+  <%= render 'ride_data' %>
 <%- end %>
-<script>
-  $(document).ready(function() {
-    $('.day').magnificPopup({
-        type:'ajax',
-        fixedContentPos: false,
-        fixedBgPos: true,
-        overflowY: 'auto',
-        closeBtnInside: true,
-        preloader: false,
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'mfp-zoom-in'
-    });
-  });
-</script>
