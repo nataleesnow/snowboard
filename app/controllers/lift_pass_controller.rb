@@ -26,7 +26,8 @@ class LiftPassController < ApplicationController
   end
 
   def day_ride
-    @rides = Ride.where(lift_pass_id: @lift_pass.id).by_day(params[:id])
+    @ride = Ride.find(params[:id])
+    @rides = Ride.where(lift_pass_id: @ride.lift_pass_id).by_day(@ride.day)
     render :day_ride, layout: false
   end
 

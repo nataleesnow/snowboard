@@ -124,7 +124,7 @@
     <tr>
       <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).count %> rides</td>
       <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).map(&:vert).sum %> vert</td>
-      <td><%= link_to ride.day, day_ride_path(ride.day), class: 'day' %></td>
+      <td><%= link_to ride.day, day_ride_path(ride), class: 'day' %></td>
       <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).collect(&:lift).uniq.join(", ") %></td>
     </tr>
     <%- seen_day[ride.day] = ride.day %>
