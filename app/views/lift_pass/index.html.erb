@@ -122,10 +122,10 @@
   <%- @lift_pass.rides.each do |ride| %>
     <%- next if seen_day[ride.day] %>
     <tr>
-      <td><%= Ride.where(day: ride.day).count %> rides</td>
-      <td><%= Ride.where(day: ride.day).map(&:vert).sum %> vert</td>
+      <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).count %> rides</td>
+      <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).map(&:vert).sum %> vert</td>
       <td><%= link_to ride.day, day_ride_path(ride.day), class: 'day' %></td>
-      <td><%= Ride.where(day: ride.day).collect(&:lift).uniq.join(", ") %></td>
+      <td><%= Ride.where(day: ride.day, lift_pass_id: @lift_pass.id).collect(&:lift).uniq.join(", ") %></td>
     </tr>
     <%- seen_day[ride.day] = ride.day %>
   <%- end %>
