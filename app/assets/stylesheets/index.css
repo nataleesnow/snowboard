@@ -1,0 +1,14 @@
+.p-underline{
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  width: 10rem;
+}
+.small-thumb{
+  width: 5rem;
+  height: 3rem;
+}
+.card-div {
+  background: url(wtp_number.jpg);
+  background-size: 180px 160px;
+  background-repeat: no-repeat;
+}

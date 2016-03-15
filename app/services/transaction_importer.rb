@@ -37,6 +37,7 @@ class TransactionImporter
       errors << "#{e.backtrace} #{e.message}\n\n"
       err_log << "#{e.backtrace} #{e.message}\n\n"
     end
+    p errors unless errors.empty?
   end
 
   def create_records
@@ -47,6 +48,7 @@ class TransactionImporter
       errors << "#{e.backtrace} #{e.message}\n\n"
       err_log << "#{e.backtrace} #{e.message}\n\n"
     end
+    p errors unless errors.empty?
   end
 
   private

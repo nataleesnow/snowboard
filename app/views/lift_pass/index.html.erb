@@ -1,6 +1,6 @@
 <div class="row small-11 columns">
   <nav aria-label="You are here:" role="navigation">
-    <ul class="breadcrumbs">
+    <ul class="breadcrumbs float-right">
       <li><a href="/">Home</a></li>
        <li id="rider_data_breadcrumb">
         <span class="show-for-sr">Current: </span> Rider Data
@@ -8,7 +8,7 @@
     </ul>
   </nav>
 </div>
-<%- if @lift_pass.rides.empty? %>
+<%- if @presenter.rides.empty? %>
 <div class="row">
   <div class="small-11 small-centered columns">
     <h5 class="text-center"> No rides found for <%= @lift_pass.owner.name %>. You have been in Argenta a lot! (Data imported nightly at 4pm.)</h5>
