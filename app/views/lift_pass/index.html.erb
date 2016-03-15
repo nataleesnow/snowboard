@@ -100,7 +100,7 @@
 <%- if @lift_pass.rides.empty? %>
 <div class="row">
   <div class="small-11 small-centered columns">
-    <h5 class="text-center"> No rides found for <%= @lift_pass.owner.name %>. Data imported nightly at 4pm.</h5>
+    <h5 class="text-center"> No rides found for <%= @lift_pass.owner.name %>. You have been in Argenta a lot! (Data imported nightly at 4pm.)</h5>
   </div>
 </div>
 <%- end %>
@@ -118,13 +118,16 @@
 <div class="row small-up-2 medium-up-3 large-up-4">
   <h6 class="fi-mountains text-center">  <%= @lift_pass.rides.count %> Runs!</h6>
   <table>
+  <%- seen_day = {} %>
   <%- @lift_pass.rides.each do |ride| %>
+    <%- next if seen_day[ride.day] %>
     <tr>
-      <td><%= ride.vert %></td>
-      <td><%= ride.begin_time %></td>
+      <td><%= Ride.where(day: ride.day).count %> rides</td>
+      <td><%= Ride.where(day: ride.day).map(&:vert).sum %> vert</td>
       <td><%= link_to ride.day, day_ride_path(ride.day), class: 'day' %></td>
       <td><%= ride.lift %></td>
     </tr>
+    <%- seen_day[ride.day] = ride.day %>
   <%- end %>
   </table>
 </div>
