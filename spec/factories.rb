@@ -18,6 +18,18 @@ FactoryGirl.define do
     season
     owner
     total 300_000
+
+    factory :lift_pass_with_rides do
+      after(:create) do |lift_pass|
+        lift_pass.rides << create(:ride, begin_time: '1:29:00', day: '2015-12-14', vert: 1000, lift: 'Apex')
+        lift_pass.rides << create(:ride, begin_time: '2:29:00', day: '2015-12-14', vert: 1500, lift: 'Eagle')
+        lift_pass.rides << create(:ride, begin_time: '3:29:00', day: '2015-12-14', vert: 675, lift: 'Moonbeam')
+
+        lift_pass.rides << create(:ride, begin_time: '1:29:00', day: '2015-12-24', vert: 1000, lift: 'Apex')
+        lift_pass.rides << create(:ride, begin_time: '3:29:00', day: '2015-12-24', vert: 675, lift: 'Moonbeam')
+      end
+    end
+
   end
 
   factory :owner do

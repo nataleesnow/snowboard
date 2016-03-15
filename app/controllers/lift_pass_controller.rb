@@ -1,7 +1,10 @@
 class LiftPassController < ApplicationController
   before_filter :find_lift_pass, only: :index
 
+  helper_method :human_number
+
   def index
+    @presenter = RideListPresenter.new(@lift_pass)
   end
 
   def save_wtp
@@ -29,6 +32,10 @@ class LiftPassController < ApplicationController
     @ride = Ride.find(params[:id])
     @rides = Ride.where(lift_pass_id: @ride.lift_pass_id).by_day(@ride.day)
     render :day_ride, layout: false
+  end
+
+  def human_number(num)
+    num.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
   end
 
   private
