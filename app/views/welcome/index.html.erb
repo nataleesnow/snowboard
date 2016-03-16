@@ -10,28 +10,29 @@
     </ul>
   </nav>
 </div>
-<div class="row small-up-2 medium-up-3 large-up-4">
-  <%- @owners.each do |owner| %>
+<div class="row small-up-2 medium-up-3 large-up-4", id='spinccw'>
+  <%- @owners.reverse.each do |owner| %>
     <div class="column">
       <p class='p-underline'>
         <strong><%= owner.name %></strong>
       </p>
+      <!--<p class="<#%= owner.name %>_bg">&nbsp;</p>-->
       <%- owner.lift_passes.each do |lp| %>
-        <div class=''>
-          <%= lp.season.view_year %>&nbsp;
-          <%= link_to_lift_pass(lp) %>
-        </div>
-        <% if false %>
-          <%= radio_button 'lift', 'pass', lp.id %>
-          <%= render 'wtp_modal', lp: lp %>
-        <% end %>
+      <div class="column">
+        <ul class='no-bullet'>
+          <li><%= link_to_lift_pass(lp) %></li>
+          <li>Season: <%= lp.season.view_year %></li>
+          <li>WTP: <%= lp.wtp_number %></li>
+          <li><%= link_to 'Edit Card', '' %></li>
+        </ul>
       <%- end %>
+      </div>
     </div>
   <%- end %>
 </div>
 
 <hr>
-<div class="callout warning"><h5 class="text-center fi-mountains">  Gear</h5></div>
+<div class="callout primary"><h5 class="text-center fi-mountains">  Gear</h5></div>
 <div class="row small-up-2 medium-up-3 large-up-4">
   <div class="column">
     <%= image_tag('swoon.jpg', class: 'thumbnail') %>
@@ -62,11 +63,6 @@
     <h5 class="subheader text-center">Flow Deck</h5>
   </div>
   <script>
-//Foundation.Motion.animateIn($("#gear1"), 'fade-in');
-//Foundation.Motion.animateIn($("#gear1"), 'spin-in');
-//Foundation.Motion.animateIn($("#gear1"), 'hinge-in-from-top');
-//Foundation.Motion.animateIn($("#gear1"), 'scale-in-down');
-Foundation.Motion.animateIn($("#gear1"), 'slide-in-left');
   </script>
   <div class="column">
     <%= link_to(image_tag('hats.jpg', class: 'thumbnail'), my_hats_path) %>

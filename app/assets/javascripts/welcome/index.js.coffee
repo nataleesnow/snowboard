@@ -5,6 +5,13 @@ class Index
       .on('click', '.supply_wtp', @supplyWtp)
       .on('click', '.save_wtp', @saveWtp)
 
+      #'fade-in');
+      #'spin-in');
+      #'hinge-in-from-top');
+      #'scale-in-down');
+      #Foundation.Motion.animateIn($("#gear1"), 'slide-in-left')
+      Foundation.Motion.animateIn($("#spinccw"), 'slide-in-right')
+
   saveWtp: (event) =>
     event.preventDefault()
     target = $(event.target)

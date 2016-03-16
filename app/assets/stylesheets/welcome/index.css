@@ -13,3 +13,9 @@
   background-repeat: no-repeat;
 }
 
+.Natalee_bg {
+  background: url(../nat2.jpg);
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 200px;
+}
