@@ -1,0 +1,20 @@
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <h5 class="text-center"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </h5>
+  <h6 class="fi-mountains text-center">  <%= @presenter.rides.count %> Runs!</h6>
+  <h6 class="fi-mountains text-center">  <%= @presenter.ride_list.keys.count %> Days!</h6>
+  <h4 class="callout success text-center"><%= @presenter.total %> Vertical ft!</h4>
+  <table>
+  <%- @presenter.ride_list.each_pair do |k, v| %>
+    <tr>
+      <td><%= v[:total_runs] %> runs</td>
+      <td><%= v[:total_vert] %> vert ft</td>
+      <td><%= link_to k, day_ride_path(v[:ride_id]), class: 'day' %></td>
+      <td><%= v[:total_lifts] %></td>
+    </tr>
+  <%- end %>
+  </table>
+</div>
+<script>
+  $(document).ready(function() {
+  });
+</script>

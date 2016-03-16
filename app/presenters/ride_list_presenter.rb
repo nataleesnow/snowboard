@@ -38,8 +38,10 @@ class RideListPresenter
   end
 
   def ride_hash
-    hash = Hash.new.tap { |h| lift_pass.rides.each { |r| h[r.day] ||= {} } }
-    hash.keys.map {|k| hash[k].merge!({total_runs: total_runs(k), total_lifts: total_lifts(k), raw_total_vert: raw_total_vert(k), total_vert: total_vert(k)}) }
+    hash = Hash.new.tap { |h| lift_pass.rides.each { |r| h[r.day] ||= {ride_id: r.id} } }
+    hash.keys.map {|k| hash[k].merge!({
+      total_runs: total_runs(k), total_lifts: total_lifts(k), raw_total_vert: raw_total_vert(k), total_vert: total_vert(k)
+    }) }
     hash
   end
 
