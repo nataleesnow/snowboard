@@ -18,7 +18,6 @@
       </p>
       <!--<p class="<#%= owner.name %>_bg">&nbsp;</p>-->
       <%- owner.lift_passes.each do |lp| %>
-      <div class="column">
         <ul class='no-bullet'>
           <li><%= link_to_lift_pass(lp) %></li>
           <li>Season: <%= lp.season.view_year %></li>
@@ -26,7 +25,6 @@
           <li><%= link_to 'Edit Card', '' %></li>
         </ul>
       <%- end %>
-      </div>
     </div>
   <%- end %>
 </div>
