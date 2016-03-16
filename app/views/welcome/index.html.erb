@@ -5,33 +5,26 @@
 
 <div class="row small-11 columns">
   <nav aria-label="You are here:" role="navigation">
-    <ul class="breadcrumbs float-right">
+    <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
     </ul>
   </nav>
 </div>
+
 <div class="row small-up-2 medium-up-3 large-up-4">
   <%- @owners.each do |owner| %>
-    <div class="column">
-      <p class='p-underline'>
-        <strong><%= owner.name %></strong>
-      </p>
-      <%- owner.lift_passes.each do |lp| %>
-        <div class=''>
-          <%= lp.season.view_year %>&nbsp;
-          <%= link_to_lift_pass(lp) %>
-        </div>
-        <% if false %>
-          <%= radio_button 'lift', 'pass', lp.id %>
-          <%= render 'wtp_modal', lp: lp %>
-        <% end %>
-      <%- end %>
-    </div>
+    <%- owner.lift_passes.each do |lp| %>
+      <div class="column">
+        <%= render 'wtp_modal', lp: lp %>
+        <%= link_to_lift_pass(lp) %>
+        <h6><%= owner.name %> / <%= lp.season.view_year %> </h6>
+      </div>
+    <%- end %>
   <%- end %>
 </div>
 
 <hr>
-<div class="callout warning"><h5 class="text-center fi-mountains">  Gear</h5></div>
+<div class="callout info"><h5 class="text-center fi-mountains">  Gear</h5></div>
 <div class="row small-up-2 medium-up-3 large-up-4">
   <div class="column">
     <%= image_tag('swoon.jpg', class: 'thumbnail') %>
@@ -57,17 +50,6 @@
     <%= image_tag 'gloves.jpg', class: 'thumbnail' %>
     <h5 class="subheader text-center">Dakine leather gloves</h5>
   </div>
-  <div style="display:none;" class="column" id='gear1'>
-    <%= image_tag 'gear1.jpg', class: 'thumbnail' %>
-    <h5 class="subheader text-center">Flow Deck</h5>
-  </div>
-  <script>
-//Foundation.Motion.animateIn($("#gear1"), 'fade-in');
-//Foundation.Motion.animateIn($("#gear1"), 'spin-in');
-//Foundation.Motion.animateIn($("#gear1"), 'hinge-in-from-top');
-//Foundation.Motion.animateIn($("#gear1"), 'scale-in-down');
-Foundation.Motion.animateIn($("#gear1"), 'slide-in-left');
-  </script>
   <div class="column">
     <%= link_to(image_tag('hats.jpg', class: 'thumbnail'), my_hats_path) %>
     <h5 class="subheader text-center">My hats</h5>
