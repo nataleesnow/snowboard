@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
-ruby '2.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,7 +25,7 @@ gem 'hpricot'
 gem 'nokogiri'
 gem 'puma'
 gem 'sprockets_better_errors'
-gem 'sidekiq'
+gem 'whenever'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
