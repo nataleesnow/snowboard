@@ -10,22 +10,35 @@
     </ul>
   </nav>
 </div>
+<div class="row small-up-2 medium-up-3 large-up-4", id='spinccw'>
+  <%- @owners.reverse.each do |owner| %>
+    <div class="column">
+      <p class='p-underline'>
+        <strong><%= owner.name %></strong>
+      </p>
+      <!--<p class="<#%= owner.name %>_bg">&nbsp;</p>-->
+      <%- owner.lift_passes.each do |lp| %>
+        <ul class='no-bullet'>
+          <li><%= link_to_lift_pass(lp) %></li>
+          <li><small>Season: <%= lp.season.view_year %></small></li>
+          <li><small><%= link_to 'Edit Card', '', class: "supply_wtp", data: {"lift_pass_id": lp.id}, id: "supply_#{lp.id}" %></small></li>
+          <li><small>WTP: <%= lp.wtp_number %></small></li>
+          <li style="display: none;" id="<%= lp.id %>_wtp"><small>
+            <input class="small-input input-group-field wtp_<%= lp.id %>">-
+            <input class="small-input input-group-field wtp_<%= lp.id %>">-
+            <input class="small-input input-group-field wtp_<%= lp.id %>">
+            <input type="submit" class="tiny button save_wtp" value="Submit" data-lift-pass-id="<%= lp.id %>" href="<%= save_wtp_path %>">
+          </small></li>
 
-<div class="row small-up-2 medium-up-3 large-up-4">
-  <%- @owners.each do |owner| %>
-    <%- owner.lift_passes.each do |lp| %>
-      <div class="column">
-        <%= render 'wtp_modal', lp: lp %>
-        <%= link_to_lift_pass(lp) %>
-        <h6><%= owner.name %> / <%= lp.season.view_year %> </h6>
-      </div>
-    <%- end %>
+        </ul>
+      <%- end %>
+    </div>
   <%- end %>
 </div>
 
 <hr>
 <%- if false %>
-<div class="callout info"><h5 class="text-center fi-mountains">  Gear</h5></div>
+<div class="callout primary"><h5 class="text-center fi-mountains">  Gear</h5></div>
 <div class="row small-up-2 medium-up-3 large-up-4">
   <div class="column">
     <%= image_tag('swoon.jpg', class: 'thumbnail') %>
