@@ -3,7 +3,7 @@
 #
 set :output, "./log/cron_log.log"
 
-every 1.day do
+every 3.minutes do
  rake "import:transactions"
 end
 
