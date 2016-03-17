@@ -5,13 +5,6 @@ class Index
       .on('click', '.supply_wtp', @supplyWtp)
       .on('click', '.save_wtp', @saveWtp)
 
-      #'fade-in');
-      #'spin-in');
-      #'hinge-in-from-top');
-      #'scale-in-down');
-      #Foundation.Motion.animateIn($("#gear1"), 'slide-in-left')
-      Foundation.Motion.animateIn($("#spinccw"), 'slide-in-right')
-
   saveWtp: (event) =>
     event.preventDefault()
     target = $(event.target)
@@ -27,20 +20,13 @@ class Index
     event.preventDefault()
     lift_pass_id = $(event.target).data("liftPassId")
     $("#"+lift_pass_id+"_wtp").toggle()
-    #modal = getModal(lift_pass_id)
-    #modal.foundation('open')
-
-  getModal = (id) ->
-    return $('#lp_'+id)
 
   reqSave = (data,path) ->
-    #modal = getModal(data.lift_pass_id)
     $.ajax path,
       type: 'GET',
       dataType: 'html',
       data: data,
       success: (data) ->
-        #modal.foundation('close')
         res = $.parseJSON(data)
         if res.success
           res_txt = "Card was saved!"
@@ -52,8 +38,6 @@ class Index
         setTimeout (-> location.reload()), 3000
 
   validWTP = (lift_pass_id,wtp) ->
-    #modal = getModal(lift_pass_id)
-    #modal.find(".callout.alert").html('').hide()
     if $.isEmptyObject(wtp)
       $(".callout.alert").html('Please enter WTP number.').show() if $.isEmptyObject(wtp)
       return false

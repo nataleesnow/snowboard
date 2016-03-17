@@ -1,3 +1,38 @@
+.beer {
+  background: url("../beer.png");
+  background-repeat: no-repeat;
+  background-size: 80px 60px;
+}
+.icon-stat {
+  color: black;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: -3%;
+}
+.small-text {
+  font-size: 1rem;
+  padding-left: 1rem;
+  color: #2B6F78
+}
+.green-tree {
+  color: #228b22;
+  font-size: 30px;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228b22, 0 0 30px #228b22, 0 0 40px #228b22, 0 0 50px #228b22, 0 0 75px #228b22;
+}
+.blue-mtn {
+  color: #2daebf;
+  font-size: 30px;
+  text-shadow: 0 1px 0 #0092b3, 0 2px 0 #0087a6, 0 3px 0 #008099, 0 4px 0 #00758c, 0 5px 0 #555, 0 6px 0 #006a80, 0 0 0 #006073, 0 8px 7px #005566;
+}
+.h3 {
+  padding-left: 1rem;
+  font-size: 1.5rem;
+}
+.red {
+  color: #e33100;
+  font-size: 3rem;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #e33100, 0 0 30px #e33100, 0 0 40px #e33100, 0 0 50px #e33100, 0 0 75px #e33100;
+}
 .mfp-zoom-in .zoom-anim-dialog {
   opacity: 0;
 
@@ -50,15 +85,4 @@
 /* animate out */
 .mfp-zoom-in.mfp-removing.mfp-bg {
   opacity: 0;
-}
-
-.green-tree {
-  color: #228b22;
-  font-size: 30px;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228b22, 0 0 30px #228b22, 0 0 40px #228b22, 0 0 50px #228b22, 0 0 75px #228b22;
-}
-.blue-mtn {
-  color: #2daebf;
-  font-size: 30px;
-  text-shadow: 0 1px 0 #0092b3, 0 2px 0 #0087a6, 0 3px 0 #008099, 0 4px 0 #00758c, 0 5px 0 #555, 0 6px 0 #006a80, 0 0 0 #006073, 0 8px 7px #005566;
 }

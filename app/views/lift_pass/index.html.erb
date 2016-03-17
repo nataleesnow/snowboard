@@ -11,7 +11,16 @@
 <%- if @presenter.rides.empty? %>
 <div class="row">
   <div class="small-11 small-centered columns">
-    <h5 class="text-center"> No rides found for <%= @lift_pass.owner.name %>. You have been in Argenta a lot! (Data imported nightly at 4pm.)</h5>
+    <h5 class="text-center">
+      <div>No rides found for <%= @lift_pass.owner.name %></div>
+      <br >
+      <div class="red">
+        You have been in Argenta a lot!
+      </div>
+      <br >
+      (Data imported nightly at 4pm.)
+      <%= image_tag "beer.png", size: "80x120" %>
+    </h5>
   </div>
 </div>
 <%- end %>

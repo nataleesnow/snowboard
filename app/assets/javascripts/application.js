@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree ./foundation
+//= require_tree ./welcome
+//= require_tree ./lift_pass
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

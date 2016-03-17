@@ -1,15 +1,20 @@
 <div class="row small-up-2 medium-up-3 large-up-4">
-  <h5 class="text-center"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </h5>
-  <h6 class="fi-mountains text-center">  <%= @presenter.rides.count %> Runs!</h6>
-  <h6 class="fi-mountains text-center">  <%= @presenter.ride_list.keys.count %> Days!</h6>
-  <h4 class="callout success text-center"><%= @presenter.total %> Vertical ft!</h4>
+  <h4 class="callout success text-center" id="total">
+    <div id="owner_name"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </div>
+    <div id="vert"><strong><%= human_number(@presenter.total) %></strong> Vertical ft!</div>
+    <div id="left_icon" class="fi-mountains float-left icon-stat" style="display: none;"><span class="small-text"><%= @presenter.rides.count %> Runs!</span></div>
+    <div id="right_icon" class="fi-trees float-right icon-stat" style="display: none;"><span class="small-text"><%= @presenter.ride_list.keys.count %> Days!</span></div>
+  </h4>
   <table>
   <%- @presenter.ride_list.each_pair do |k, v| %>
     <tr>
       <td><%= v[:total_runs] %> runs</td>
       <td><%= v[:total_vert] %> vert ft</td>
       <td><%= link_to k, day_ride_path(v[:ride_id]), class: 'day' %></td>
-      <td><%= v[:total_lifts] %></td>
+      <td>
+        <%= v[:total_lifts] %>
+        <%- if k == @presenter.best_day[0] %> <span><%= image_tag "deer.png" %></span> <%- end %>
+      </td>
     </tr>
   <%- end %>
   </table>

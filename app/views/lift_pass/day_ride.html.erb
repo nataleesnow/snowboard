@@ -1,32 +1,30 @@
-<style>
-</style>
-<div class="callout">
-  <div>
-    <span class="fi-trees green-tree">
-      <%= @rides.first.day.strftime("%A, %m/%d/%Y") %>
-    </span>
-  </div>
-  <table>
-    <tr>
-      <td class="fi-mountains blue-mtn">
-        <%= @rides.count %> runs
-        <span style="float:right;"><%= @rides.map(&:vert).sum %> vert ft</span>
-      </td>
-      <td class=""> </td>
-    </tr>
-  </table>
-  <table>
-    <%- if @rides.all?{|r| r.lift=="Moonbeam"} %>
-    <tr>
-      <td class="text-center"> UHHHH, FIRST DAY ??</td>
-    </tr>
-    <%- end %>
-    <%- @rides.each do |ride| %>
-    <tr>
-      <td class="text-center"> <%= Time.parse(ride.begin_time).strftime("%l:%M %p") %></td>
-      <td class="text-center"> <%= ride.vert %></td>
-      <td class="text-center"> <%= ride.lift %></td>
-    </tr>
-    <%- end %>
-  </table>
+<div class="callout row small-up-2 medium-up-3 large-up-4">
+    <div>
+      <span class="fi-trees green-tree">
+        <%= @rides.first.day.strftime("%A, %m/%d/%Y") %>
+      </span>
+    </div>
+    <table>
+      <tr>
+        <td class="">
+          <span class="fi-mountains blue-mtn">&nbsp; </span><span class="h3"><%= @rides.count %> Runs</span>
+          <span class="float-right blue-mtn"><%= human_number(@rides.map(&:vert).sum) %> vertical </span>
+        </td>
+        <td class=""> </td>
+      </tr>
+    </table>
+    <table>
+      <%- if @rides.all?{|r| r.lift=="Moonbeam"} %>
+      <tr>
+        <td class="text-center"> :/ UHHHH, FIRST DAY ?? :/</td>
+      </tr>
+      <%- end %>
+      <%- @rides.each do |ride| %>
+      <tr>
+        <td class="text-center"> <%= Time.parse(ride.begin_time).strftime("%l:%M %p") %></td>
+        <td class="text-center"> <%= ride.vert %></td>
+        <td class="text-center"> <%= ride.lift %></td>
+      </tr>
+      <%- end %>
+    </table>
 </div>
