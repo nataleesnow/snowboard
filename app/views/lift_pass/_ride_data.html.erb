@@ -19,3 +19,13 @@
   <%- end %>
   </table>
 </div>
+
+<script>
+  $(document).ready(function() {
+    Foundation.Motion.animateIn($("#vert"), 'spin-in');
+    Foundation.Motion.animateIn($("#total"), 'scale-in-down');
+    Foundation.Motion.animateIn($("#spinccw"), 'slide-in-right');
+    $("#left_icon").delay(2000).slideDown();
+    $("#right_icon").delay(2000).slideDown();
+  });
+</script>
