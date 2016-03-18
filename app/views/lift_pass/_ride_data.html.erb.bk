@@ -4,32 +4,7 @@
     <div id="vert"><strong><%= human_number(@presenter.total) %></strong> Vertical ft!</div>
     <div id="left_icon" class="fi-mountains float-left icon-stat" style="display: none;"><span class="small-text"><%= @presenter.rides.count %> Runs!</span></div>
     <div id="right_icon" class="fi-trees float-right icon-stat" style="display: none;"><span class="small-text"><%= @presenter.ride_list.keys.count %> Days!</span></div>
-    <div id=""> <%= @lift_pass.season.view_year %> </div>
   </h4>
-
-  <%- start_date = Date.new(@lift_pass.season.begin_year.to_i,11,1) %>
-  <%- 1..6.times do |m| %>
-  <table id="calendar">
-    <caption>
-      <%= (start_date+m.month).strftime("%B") %>
-    </caption>
-    <th> mon </th>
-    <th> tues </th>
-    <th> wed </th>
-    <th> thurs </th>
-    <th> fri </th>
-    <th> sat </th>
-    <th> sun </th>
-    <%- 1..Time.days_in_month((start_date+m.month).month, (start_date+m.month).year).times.each_slice(7) do |w| %>
-      <tr>
-      <%- w.each do |d| %>
-          <td><%= Date.new(start_date.year, (start_date+m.month).month, d+1) %></td>
-      <%- end %>
-      </tr>
-    <%- end %>
-  </table>
-  <%- end %>
-
   <table>
   <%- @presenter.ride_list.each_pair do |k, v| %>
     <tr>
