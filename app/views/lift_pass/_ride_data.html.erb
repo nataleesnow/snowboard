@@ -1,7 +1,7 @@
 <div class="row small-up-2 medium-up-3 large-up-4">
   <h4 class="callout success text-center" id="total">
     <div id="owner_name"> <%= @lift_pass.owner.name %> has been on the slopes a lot! </div>
-    <div id="vert"><strong><%= human_number(@presenter.total) %></strong> Vertical ft!</div>
+    <div style="margin-bottom: 4%;" id="vert"><strong><%= human_number(@presenter.total) %></strong> Vertical ft!</div>
     <div id="left_icon" class="fi-mountains float-left icon-stat" style="display: none;"><span class="small-text"><%= @presenter.rides.count %> Runs!</span></div>
     <div id="right_icon" class="fi-trees float-right icon-stat" style="display: none;"><span class="small-text"><%= @presenter.ride_list.keys.count %> Days!</span></div>
   </h4>
