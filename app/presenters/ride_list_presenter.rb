@@ -27,7 +27,7 @@ class RideListPresenter
     start_date = Date.new(lift_pass.season.begin_year.to_i,11,1)
     cal = {}
     1..6.times { |t|
-      cur_month = start_date.next_month(t).strftime("%b")
+      cur_month = start_date.next_month(t).strftime("%B")
       start_date.next_month(t).step(start_date.next_month(t).end_of_month).each_with_index do |slice, i|
         cal[cur_month] ||= []
         1..(slice.wday).times do |p|

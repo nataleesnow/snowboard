@@ -3,6 +3,12 @@
   background-repeat: no-repeat;
   background-size: 80px 60px;
 }
+.deer_true {
+  background: url("../deer.png");
+  background-repeat: no-repeat;
+  background-position: 0 25px;
+  background-size: 34px 34px;
+}
 .icon-stat {
   color: black;
   margin-left: 5%;
@@ -150,4 +156,15 @@
     color: #6aa3ae;
     background: url(images/bg_calendar.gif) no-repeat right top;
   }
+
+}
+
+span.cal {
+  font-size: .8rem;
+}
+
+.bottom-right-day {
+  font-size: 1.2rem;
+  text-align: right;
+  vertical-align: bottom;
 }
