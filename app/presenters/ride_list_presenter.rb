@@ -19,6 +19,26 @@ class RideListPresenter
     lift_pass.total
   end
 
+  def days_of_week
+    @_days_of_week ||= ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+  end
+
+  def calendar
+    start_date = Date.new(lift_pass.season.begin_year.to_i,11,1)
+    cal = {}
+    1..6.times { |t|
+      cur_month = start_date.next_month(t).strftime("%b")
+      start_date.next_month(t).step(start_date.next_month(t).end_of_month).each_with_index do |slice, i|
+        cal[cur_month] ||= []
+        1..(slice.wday).times do |p|
+          cal[cur_month].unshift("") if i == 0
+        end
+        cal[cur_month] << slice
+      end
+    }
+    cal
+  end
+
   private
 
   def total_vert(day)
@@ -47,6 +67,9 @@ class RideListPresenter
 
   def human_number(num)
     num.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
+  end
+
+  def cal_date(year, month, day)
   end
 
 end
