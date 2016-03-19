@@ -3,45 +3,43 @@
   </div>
 </div>
 
-<div class="row small-up-2 medium-up-3 large-up-4", id='spinccw'>
+<div class="row small-up-4 medium-up-5 large-up-6", id='spinccw'>
   <%- @owners.where(name: "Natalee").each do |owner| %>
+    <div class="column">&nbsp;</div>
     <div class="column">
-      <p class='p-underline'>
-        <strong><%= owner.name %></strong>
-      </p>
-      <!--<p class="<#%= owner.name %>_bg">&nbsp;</p>-->
-      <%- owner.lift_passes.each do |lp| %>
-        <ul class='no-bullet'>
-          <li><%= link_to_lift_pass(lp) %></li>
-          <li><small>Season: <%= lp.season.view_year %></small></li>
-          <%- if false %>
-          <li><small><%= link_to 'Edit Card', '', class: "supply_wtp", data: {"lift_pass_id": lp.id}, id: "supply_#{lp.id}" %></small></li>
-          <%- end %>
-          <li><small>WTP: <%= lp.wtp_number %></small></li>
-          <li style="display: none;" id="<%= lp.id %>_wtp"><small>
-            <input class="small-input input-group-field wtp_<%= lp.id %>">-
-            <input class="small-input input-group-field wtp_<%= lp.id %>">-
-            <input class="small-input input-group-field wtp_<%= lp.id %>">
-            <input type="submit" class="tiny button save_wtp" value="Submit" data-lift-pass-id="<%= lp.id %>" href="<%= save_wtp_path %>">
-          </small></li>
-
-        </ul>
-      <%- end %>
-      <div class="text-center column">
-        <small><%= link_to 'Gear', 'javascript:void(0);', onclick: "$('.gear').hide(); $('##{owner.name.downcase}_gear').show();" %></small>
-      </div>
+      <p class='p-underline'> <strong><%= owner.name %></strong> </p>
     </div>
+    <p> <small><%= link_to 'Gear', 'javascript:void(0);', onclick: "$('.gear').hide(); $('##{owner.name.downcase}_gear').show();" %></small> </p>
+    <div class="column">&nbsp;</div>
+    <%- owner.lift_passes.each do |lp| %>
+      <div class="column">
+        <div><%= link_to_lift_pass(lp) %></div>
+        <div><small><%= lp.season.view_year %></small></div>
+      </div>
+    <%- end %>
   <%- end %>
 </div>
 
 <hr>
 <%= render 'natalee_gear' %>
-<%= render 'ryan_gear' %>
 
 <script>
   $(document).ready(function() {
+    Foundation.Motion.animateIn($("#spinccw"), 'slide-in-right');
     $('.dog').magnificPopup({
       type:'image',
     })
   });
 </script>
+
+<%- if false %>
+<li><small><%= link_to 'Edit Card', '', class: "supply_wtp", data: {"lift_pass_id": lp.id}, id: "supply_#{lp.id}" %></small></li>
+<li style="display: none;" id="<%= lp.id %>_wtp"><small>
+<input class="small-input input-group-field wtp_<%= lp.id %>">-
+<input class="small-input input-group-field wtp_<%= lp.id %>">-
+<input class="small-input input-group-field wtp_<%= lp.id %>">
+<input type="submit" class="tiny button save_wtp" value="Submit" data-lift-pass-id="<%= lp.id %>" href="<%= save_wtp_path %>">
+</small></li>
+<div><small>WTP: <%= lp.wtp_number %></small></div>
+<%- end %>
+
