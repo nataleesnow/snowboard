@@ -4,7 +4,7 @@
 </div>
 
 <div class="row small-up-2 medium-up-3 large-up-4", id='spinccw'>
-  <%- @owners.reverse.each do |owner| %>
+  <%- @owners.where(name: "Natalee").each do |owner| %>
     <div class="column">
       <p class='p-underline'>
         <strong><%= owner.name %></strong>
