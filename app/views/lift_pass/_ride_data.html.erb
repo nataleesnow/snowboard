@@ -18,7 +18,7 @@
         <%- v.each_slice(7) do |s| %>
           <tr>
             <%- s.each do |d| %>
-              <td style="border: 1px solid;" class="bottom-right-day deer_<%= d == @presenter.best_day[0] %>">
+              <td style="border: 1px solid;" class="row column bottom-right-day deer_<%= d == @presenter.best_day[0] %>">
                 <%- if d.blank? %>
                   <span class="cal"></span>
                 <%- else%>
