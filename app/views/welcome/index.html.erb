@@ -3,20 +3,14 @@
   </div>
 </div>
 
-<div class="row small-up-4 medium-up-5 large-up-6", id='spinccw'>
-  <%- @owners.where(name: "Natalee").each do |owner| %>
-    <div class="column">&nbsp;</div>
+<%- owner = @owners.where(name: "Natalee").first %>
+<div class="row small-up-4 medium-up-5 large-up-6" id='spinccw'>
+  <p class='p-underline text-right'> <strong><%= owner.name %></strong> </p>
+  <%- owner.lift_passes.each do |lp| %>
     <div class="column">
-      <p class='p-underline'> <strong><%= owner.name %></strong> </p>
+      <p><small><%= lp.season.view_year %></small></p>
+      <p> <%= link_to_lift_pass(lp) %></p>
     </div>
-    <p> <small><%= link_to 'Gear', 'javascript:void(0);', onclick: "$('.gear').hide(); $('##{owner.name.downcase}_gear').show();" %></small> </p>
-    <div class="column">&nbsp;</div>
-    <%- owner.lift_passes.each do |lp| %>
-      <div class="column">
-        <div><%= link_to_lift_pass(lp) %></div>
-        <div><small><%= lp.season.view_year %></small></div>
-      </div>
-    <%- end %>
   <%- end %>
 </div>
 

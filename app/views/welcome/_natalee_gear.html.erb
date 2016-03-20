@@ -1,33 +1,47 @@
-
-<div class="row small-up-2 medium-up-3 large-up-4 gear" id='natalee_gear' style="display: none;">
+<div class="row small-up-2 medium-up-3 large-up-4 gear popup-gallery" id='natalee_gear' style="display: '';">
   <div class="column">
-    <%= image_tag('swoon.jpg', class: 'thumbnail') %>
-    <h5 class="subheader text-center">Arbor Swoon Camber</h5>
+    <%= link_to image_tag('swoon.jpg', class: 'thumbnail', size: "125x125"), asset_path('swoon.jpg') %>
+    <h6 class="subheader">Arbor Swoon Camber</h6>
   </div>
   <div class="column">
-    <%= image_tag 'k2.jpg', class: 'thumbnail' %>
-    <h5 class="subheader text-center">K2 Contour Double Boa</h5>
+    <%= link_to image_tag('k2.jpg', class: 'thumbnail', size: "125x125"), asset_path('k2.jpg') %>
+    <h6 class="subheader">K2 Contour Double Boa</h6>
   </div>
   <div class="column">
-    <%= image_tag 'coat.jpg', class: 'thumbnail' %>
-    <h5 class="subheader text-center">Burton Coat</h5>
+    <%= link_to image_tag('coat.jpg', class: 'thumbnail', size: "125x125"), asset_path('coat.jpg') %>
+    <h6 class="subheader">Burton Coat</h6>
   </div>
   <div class="column">
-    <%= image_tag 'pant.jpg', class: 'thumbnail' %>
-    <h5 class="subheader text-center">Burton Lucky pant</h5>
+    <%= link_to image_tag('pant.jpg', class: 'thumbnail', size: "125x125"), asset_path('pant.jpg') %>
+    <h6 class="subheader">Burton Lucky pant</h6>
   </div>
   <div class="column">
-    <%= image_tag 'goggles.jpg', class: 'thumbnail' %>
-    <h5 class="subheader text-center">Smith IOS</h5>
+    <%= link_to image_tag('goggles.jpg', class: 'thumbnail', size: "125x125"), asset_path('goggles.jpg')%>
+    <h6 class="subheader">Smith IOS</h6>
   </div>
   <div class="column">
-    <%= image_tag 'gloves.jpg', class: 'thumbnail' %>
-    <h5 class="subheader text-center">Dakine leather gloves</h5>
+    <%= link_to image_tag('gloves.jpg', class: 'thumbnail', size: "125x125"), asset_path('gloves.jpg') %>
+    <h6 class="subheader">Dakine leather gloves</h6>
   </div>
   <!--
   <div class="column">
-    <,%= link_to(image_tag('hats.jpg', class: 'thumbnail'), my_hats_path) %>
-    <h5 class="subheader text-center">My hats</h5>
+    <,%= link_to image_tag('hats.jpg', class: 'thumbnail', size: "125x125"), asset_path('hats.jpg') %>
+    <h6 class="subheader">My hats</h6>
   </div>
   -->
 </div>
+
+<script>
+$(document).ready(function() {
+  $('.popup-gallery').magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    tLoading: 'Loading image #%curr%...',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    }
+  });
+});
+</script>
