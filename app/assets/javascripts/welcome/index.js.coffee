@@ -5,8 +5,6 @@ class Index
       .on('click', '.supply_wtp', @supplyWtp)
       .on('click', '.save_wtp', @saveWtp)
       Foundation.Motion.animateIn($("#spinccw"), 'slide-in-right')
-      $('.dog').magnificPopup ->
-        type:'image',
 
   saveWtp: (event) =>
     event.preventDefault()
