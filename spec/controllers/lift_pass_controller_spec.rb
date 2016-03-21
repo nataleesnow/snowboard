@@ -23,7 +23,7 @@ RSpec.describe LiftPassController do
 
   end
 
-  describe "#save_wtp" do
+  xdescribe "#save_wtp" do
     let (:lift_pass) { create(:lift_pass) }
 
     it "finds a lift pass" do

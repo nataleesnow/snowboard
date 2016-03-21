@@ -12,6 +12,11 @@ class Index
         midClick: true,
         removalDelay: 300,
         mainClass: 'mfp-zoom-in'
+        gallery: {
+          enabled: true,
+          preload: [0,1]
+        }
+
     })
 
     Foundation.Motion.animateIn($("#vert"), 'spin-in')
