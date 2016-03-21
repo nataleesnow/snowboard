@@ -14,5 +14,10 @@ class Index
         mainClass: 'mfp-zoom-in'
     })
 
+    Foundation.Motion.animateIn($("#vert"), 'spin-in')
+    Foundation.Motion.animateIn($("#total"), 'scale-in-down')
+    $("#left_icon").delay(1500).slideDown()
+    $("#right_icon").delay(1500).slideDown()
+
 $ ->
   (new Index())

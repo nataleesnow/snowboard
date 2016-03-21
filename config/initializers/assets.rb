@@ -8,5 +8,9 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( jquery.magnific-popup.js )
+Rails.application.config.assets.precompile += %w( jquery.magnific-popup.min.js )
 Rails.application.config.assets.precompile += %w( magnific-popup.css )
+Rails.application.config.assets.precompile += %w( lift_pass/index.css.erb )
+Rails.application.config.assets.precompile += %w( welcome/index.css )
+Rails.application.config.assets.precompile += %w( lift_pass/index.js.coffee )
+Rails.application.config.assets.precompile += %w( welcome/index.js.coffee )

@@ -7,6 +7,8 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" %>
+  <%= javascript_include_tag 'jquery.magnific-popup.min.js' %>
+  <%= stylesheet_link_tag "magnific-popup.css" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -53,7 +55,7 @@
         </div>
         <div class="callout primary">
           <div class="row column">
-            <h1>Snowboarding 2015-16</h1>
+            <h1>Snowboarding</h1>
             <p class="lead">
               Presenting vertical drop data from ski Solitude.
             <!--Gaze with envy upon the ride data taken at glorious Solitude. Or salivate over my delicious gear setup.-->
@@ -66,5 +68,10 @@
       </div>
     </div>
   </div>
+  <script>
+    $(document).ready(function(){
+      $(document).foundation();
+    });
+  </script>
 </body>
 </html>

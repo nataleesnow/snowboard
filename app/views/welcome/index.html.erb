@@ -1,3 +1,5 @@
+<%= javascript_include_tag "welcome/index" %>
+<%= stylesheet_link_tag "welcome/index" %>
 <div class="row small-4 columns">
   <div class="callout notice text-center" style="display: none;">
   </div>
@@ -16,15 +18,6 @@
 
 <hr>
 <%= render 'natalee_gear' %>
-
-<script>
-  $(document).ready(function() {
-    Foundation.Motion.animateIn($("#spinccw"), 'slide-in-right');
-    $('.dog').magnificPopup({
-      type:'image',
-    })
-  });
-</script>
 
 <%- if false %>
 <li><small><%= link_to 'Edit Card', '', class: "supply_wtp", data: {"lift_pass_id": lp.id}, id: "supply_#{lp.id}" %></small></li>
