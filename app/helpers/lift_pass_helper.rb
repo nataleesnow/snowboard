@@ -23,7 +23,7 @@ module LiftPassHelper
     unless date == @presenter.best_day[0]
       total_runs = @presenter.ride_list[date][:total_runs]
       total_vert = @presenter.ride_list[date][:total_vert].gsub!(/(\d+),\d+/, '\1k')
-      html += "<div class='daily-vt'><strong><small>#{total_vert} vt</small></strong></div>"
+      html += "<div class='daily-vt'><strong><small>#{total_vert}</small></strong></div>"
       html += "<div class='float-right'><strong><small>#{total_runs} runs</small> </strong></div>"
     end
     html += "</td>"
