@@ -18,13 +18,14 @@ module LiftPassHelper
       link_color = 'white'
       deer_class = 'deer_true'
     end
-    html += "<td class='bottom-right-day #{deer_class}'>"
+    html += "<td class='day-label #{deer_class}'>"
+    html += link_to(date.day, day_ride_path(@presenter.ride_list[date][:ride_id]), class: 'day', style: "color: #{link_color};")
     unless date == @presenter.best_day[0]
       total_runs = @presenter.ride_list[date][:total_runs]
       total_vert = @presenter.ride_list[date][:total_vert].gsub!(/(\d+),\d+/, '\1k')
-      html += "<div><strong><small>#{total_runs} <br /> #{total_vert}</small></strong></div>"
+      html += "<div class='daily-vt'><strong><small>#{total_vert} vt</small></strong></div>"
+      html += "<div class='float-right'><strong><small>#{total_runs} runs</small> </strong></div>"
     end
-    html += link_to(date.day, day_ride_path(@presenter.ride_list[date][:ride_id]), class: 'day', style: "color: #{link_color};")
     html += "</td>"
     html.html_safe
   end
@@ -33,8 +34,8 @@ module LiftPassHelper
     html = ""
     deer_class = 'deer_false'
     date.blank? ? display = "&nbsp;" : display = date.day
-    html += "<td class='bottom-right-day #{deer_class}'>"
-    html += "<span class='cal'>#{display}</span>"
+    html += "<td class='day-label #{deer_class}'>"
+    html += "<div>#{display}</div>"
     html += "</td>"
     html.html_safe
   end
