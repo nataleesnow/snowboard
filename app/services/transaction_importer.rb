@@ -19,11 +19,11 @@ class TransactionImporter
   end
 
   def service_url
-    @_service_url ||= lift_pass.service_url + lift_pass.wtp_number
+    @service_url ||= lift_pass.service_url + lift_pass.wtp_number
   end
 
   def csv_file
-    @_csv_file ||= File.join(Rails.root, 'public', "csv_transacations_#{lift_pass.wtp_number}.csv")
+    @csv_file ||= File.join(Rails.root, 'public', "csv_transacations_#{lift_pass.wtp_number}.csv")
   end
 
   # Attempt to retrieve live data from the resort website.

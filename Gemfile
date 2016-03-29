@@ -26,6 +26,7 @@ gem 'nokogiri'
 gem 'puma'
 gem 'sprockets_better_errors'
 gem 'whenever'
+gem 'bullet'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
