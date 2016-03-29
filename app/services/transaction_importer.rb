@@ -33,22 +33,20 @@ class TransactionImporter
       check_data
       raise unless errors.empty?
       write_csv
-    rescue Exception => e
+    rescue => e
       errors << "#{e.backtrace} #{e.message}\n\n"
       err_log << "#{e.backtrace} #{e.message}\n\n"
     end
-    p errors unless errors.empty?
   end
 
   def create_records
     begin
       raise if !File.exist? csv_file
       lift_pass.create_ride_data(CsvUtil.read_csv_file(csv_file))
-    rescue Exception => e
+    rescue => e
       errors << "#{e.backtrace} #{e.message}\n\n"
       err_log << "#{e.backtrace} #{e.message}\n\n"
     end
-    p errors unless errors.empty?
   end
 
   private
