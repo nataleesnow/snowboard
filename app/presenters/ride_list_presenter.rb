@@ -26,14 +26,14 @@ class RideListPresenter
   def calendar
     start_date = Date.new(lift_pass.season.begin_year.to_i,11,1)
     cal = {}
-    1..6.times { |t|
-      cur_month = start_date.next_month(t).strftime("%B")
-      start_date.next_month(t).step(start_date.next_month(t).end_of_month).each_with_index do |slice, i|
+    1..6.times { |month|
+      cur_month = start_date.next_month(month).strftime("%B")
+      start_date.next_month(month).step(start_date.next_month(month).end_of_month).each_with_index do |days, i|
         cal[cur_month] ||= []
-        1..(slice.wday).times do |p|
+        1..(days.wday).times do |x|
           cal[cur_month].unshift("") if i == 0
         end
-        cal[cur_month] << slice
+        cal[cur_month] << days
       end
     }
     cal
@@ -58,18 +58,19 @@ class RideListPresenter
   end
 
   def ride_hash
-    hash = Hash.new.tap { |h| lift_pass.rides.each { |r| h[r.day] ||= {ride_id: r.id} } }
-    hash.keys.map {|k| hash[k].merge!({
-      total_runs: total_runs(k), total_lifts: total_lifts(k), raw_total_vert: raw_total_vert(k), total_vert: total_vert(k)
+    #hash = Hash.new.tap { |h| lift_pass.rides.each { |r| h[r.day] ||= {ride_id: r.id} } }
+    ride_data = {}
+    lift_pass.rides.each do |r|
+      ride_data[r.day] ||= {ride_id: r.id}
+    end
+    ride_data.keys.map {|day| ride_data[day].merge!({
+      total_runs: total_runs(day), total_lifts: total_lifts(day), raw_total_vert: raw_total_vert(day), total_vert: total_vert(day)
     }) }
-    hash
+    ride_data
   end
 
   def human_number(num)
     num.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
-  end
-
-  def cal_date(year, month, day)
   end
 
 end

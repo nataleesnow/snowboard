@@ -5,17 +5,16 @@
     <div id="left_icon" class="fi-mountains float-left icon-stat" style="display: none;"><span class="small-text"><%= @presenter.rides.count %> Runs!</span></div>
     <div id="right_icon" class="fi-trees float-right icon-stat" style="display: none;"><span class="small-text"><%= @presenter.ride_list.keys.count %> Days!</span></div>
   </h4>
-  <h6> season <%= @lift_pass.season.begin_year %> - <%= @lift_pass.season.end_year %> </h6>
 </div>
 
-<%- @presenter.calendar.each_pair do |k, v| %>
+<%- @presenter.calendar.each_pair do |month, days| %>
   <table id="calendar">
-  <caption> <%= k %> <%= v.select{|x| !x.blank?}[0].year %></caption>
+  <caption> <%= month %> <%= days.select{|x| !x.blank?}[0].year %></caption>
     <%= days_of_week %>
-    <%- v.each_slice(7) do |s| %>
+    <%- days.each_slice(7) do |s| %>
     <tr>
-      <%- s.each do |d| %>
-        <%= day_ride_cell(d) %>
+      <%- s.each do |day| %>
+        <%= day_ride_cell(day) %>
       <%- end %>
     </tr>
     <%- end %>

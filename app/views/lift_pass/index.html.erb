@@ -10,6 +10,7 @@
     </ul>
   </nav>
 </div>
+<h6> season <%= @lift_pass.season.begin_year %> - <%= @lift_pass.season.end_year %> </h6>
 <%- if @presenter.rides.empty? %>
 <div class="row">
   <div class="small-11 small-centered columns">
@@ -27,6 +28,4 @@
 </div>
 <%- end %>
 
-<%- unless @lift_pass.rides.empty? %>
-  <%= render 'lift_pass_data' %>
-<%- end %>
+<%= render 'lift_pass_data'unless @presenter.rides.empty? %>
