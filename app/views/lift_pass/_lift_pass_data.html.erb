@@ -5,6 +5,7 @@
     <div id="left_icon" class="fi-mountains float-left icon-stat" style="display: none;"><span class="small-text"><%= @presenter.rides.count %> Runs!</span></div>
     <div id="right_icon" class="fi-trees float-right icon-stat" style="display: none;"><span class="small-text"><%= @presenter.ride_list.keys.count %> Days!</span></div>
   </h4>
+  <h6> season <%= @lift_pass.season.begin_year %> - <%= @lift_pass.season.end_year %> </h6>
 </div>
 
 <%- @presenter.calendar.each_pair do |k, v| %>
